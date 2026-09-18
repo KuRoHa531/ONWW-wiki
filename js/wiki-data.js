@@ -6,6 +6,8 @@
  * achievements: 各役職に紐づく実績一覧(アドオン scripts/stats.js の
  * ACHIEVEMENTS を subCategory(=役職の表示名)でグルーピングして転記)。
  * id は実績の内部ID、name は実績名、desc は獲得条件。
+ * kana: 五十音順ソート用の読み方(ひらがな)。漢字を含む役職はユーザー提供の
+ * 読み方を使用し、それ以外はname自体をそのまま使用。
  * ------------------------------------------------------------
  */
 window.ONW_WIKI_ROLES = [
@@ -37,7 +39,8 @@ window.ONW_WIKI_ROLES = [
         "name": "錆鉄の空",
         "desc": "鍵師にロックされたA.A.で勝利する。"
       }
-    ]
+    ],
+    "kana": "A.A."
   },
   {
     "key": "ICARUS",
@@ -72,7 +75,8 @@ window.ONW_WIKI_ROLES = [
         "name": "太陽に近づきすぎた",
         "desc": "イカロスで人外扱いのプレイヤーに票を分け与える。"
       }
-    ]
+    ],
+    "kana": "イカロス"
   },
   {
     "key": "TROUBLEMAKER",
@@ -122,7 +126,8 @@ window.ONW_WIKI_ROLES = [
         "name": "敵味方総入れ替え",
         "desc": "村人陣営と人狼陣営の役職を交換する。"
       }
-    ]
+    ],
+    "kana": "いたずらっこ"
   },
   {
     "key": "CARMEN",
@@ -152,7 +157,8 @@ window.ONW_WIKI_ROLES = [
         "name": "E.G.Oを開花させる声",
         "desc": "カルメンで勝利する。"
       }
-    ]
+    ],
+    "kana": "カルメン"
   },
   {
     "key": "GAMBLER",
@@ -187,7 +193,8 @@ window.ONW_WIKI_ROLES = [
         "name": "借金すれば大丈夫",
         "desc": "ギャンブラーで0票を持つ。"
       }
-    ]
+    ],
+    "kana": "ギャンブラー"
   },
   {
     "key": "CLONE",
@@ -212,7 +219,8 @@ window.ONW_WIKI_ROLES = [
         "name": "完全なる複製",
         "desc": "クローンで勝利する。"
       }
-    ]
+    ],
+    "kana": "クローン"
   },
   {
     "key": "COSPLAYER",
@@ -247,7 +255,8 @@ window.ONW_WIKI_ROLES = [
         "name": "完璧ななりきり",
         "desc": "コスプレイヤーで勝利する。"
       }
-    ]
+    ],
+    "kana": "コスプレイヤー"
   },
   {
     "key": "STAR",
@@ -272,7 +281,8 @@ window.ONW_WIKI_ROLES = [
         "name": "主役の凱旋",
         "desc": "スターで勝利する。"
       }
-    ]
+    ],
+    "kana": "スター"
   },
   {
     "key": "STEVE",
@@ -297,7 +307,8 @@ window.ONW_WIKI_ROLES = [
         "name": "盾持ってたわ",
         "desc": "スティーブで敗北する。"
       }
-    ]
+    ],
+    "kana": "スティーブ"
   },
   {
     "key": "SPY",
@@ -322,7 +333,8 @@ window.ONW_WIKI_ROLES = [
         "name": "潜入任務完了",
         "desc": "スパイで勝利する。"
       }
-    ]
+    ],
+    "kana": "スパイ"
   },
   {
     "key": "TOUGH_GUY",
@@ -352,7 +364,8 @@ window.ONW_WIKI_ROLES = [
         "name": "最後まで倒れない",
         "desc": "タフガイで勝利する。"
       }
-    ]
+    ],
+    "kana": "タフガイ"
   },
   {
     "key": "CHICKEN",
@@ -382,7 +395,8 @@ window.ONW_WIKI_ROLES = [
         "name": "生き残った者が正義",
         "desc": "チキンで勝利する。"
       }
-    ]
+    ],
+    "kana": "チキン"
   },
   {
     "key": "BARTENDER",
@@ -407,7 +421,8 @@ window.ONW_WIKI_ROLES = [
         "name": "おいしい美酒を",
         "desc": "バーテンダーで勝利する。"
       }
-    ]
+    ],
+    "kana": "バーテンダー"
   },
   {
     "key": "BAKER",
@@ -432,7 +447,8 @@ window.ONW_WIKI_ROLES = [
         "name": "勝利の焼きたてパン",
         "desc": "パン屋で勝利する。"
       }
-    ]
+    ],
+    "kana": "ぱんや"
   },
   {
     "key": "PENGUIN",
@@ -462,7 +478,8 @@ window.ONW_WIKI_ROLES = [
         "name": "滑って掴んだ勝利",
         "desc": "ペンギンで勝利する。"
       }
-    ]
+    ],
+    "kana": "ペンギン"
   },
   {
     "key": "HOKMA",
@@ -487,7 +504,8 @@ window.ONW_WIKI_ROLES = [
         "name": "過去を受け入れ、未来を創り出す瞳",
         "desc": "ホクマーで勝利する。"
       }
-    ]
+    ],
+    "kana": "ホクマー"
   },
   {
     "key": "MERLIN",
@@ -522,7 +540,8 @@ window.ONW_WIKI_ROLES = [
         "name": "正体を隠した導き手",
         "desc": "マーリンで勝利する。"
       }
-    ]
+    ],
+    "kana": "マーリン"
   },
   {
     "key": "MAYOR",
@@ -552,7 +571,8 @@ window.ONW_WIKI_ROLES = [
         "name": "民意を動かす一票",
         "desc": "メイヤーで勝利する。"
       }
-    ]
+    ],
+    "kana": "メイヤー"
   },
   {
     "key": "MOSES",
@@ -582,7 +602,8 @@ window.ONW_WIKI_ROLES = [
         "name": "狂いのない世界",
         "desc": "モーゼスで3票以上投票できる状態になる。"
       }
-    ]
+    ],
+    "kana": "モーゼス"
   },
   {
     "key": "STRAW_DOLL",
@@ -612,7 +633,8 @@ window.ONW_WIKI_ROLES = [
         "name": "人外への藁の呪い",
         "desc": "わら人形で村人陣営以外を道連れにする。"
       }
-    ]
+    ],
+    "kana": "わらにんぎょう"
   },
   {
     "key": "YOMI",
@@ -647,7 +669,8 @@ window.ONW_WIKI_ROLES = [
         "name": "紅葉に時雨、万里の空",
         "desc": "黄泉で勝利する。"
       }
-    ]
+    ],
+    "kana": "よみ"
   },
   {
     "key": "ROBBER",
@@ -712,7 +735,8 @@ window.ONW_WIKI_ROLES = [
         "name": "元の鞘",
         "desc": "怪盗で交換した結果、初期役職と同じ役職になる。"
       }
-    ]
+    ],
+    "kana": "かいとう"
   },
   {
     "key": "TRAILBLAZER",
@@ -782,7 +806,8 @@ window.ONW_WIKI_ROLES = [
         "name": "開拓者で初勝利",
         "desc": "開拓者で勝利する。"
       }
-    ]
+    ],
+    "kana": "かいたくしゃ"
   },
   {
     "key": "SENSE_SEER",
@@ -807,7 +832,8 @@ window.ONW_WIKI_ROLES = [
         "name": "気配が導いた真実",
         "desc": "感覚の占い師で勝利する。"
       }
-    ]
+    ],
+    "kana": "かんかくのうらないし"
   },
   {
     "key": "WHIMSICAL_SEER",
@@ -832,7 +858,8 @@ window.ONW_WIKI_ROLES = [
         "name": "気まぐれは村に微笑む",
         "desc": "気まぐれな占い師で勝利する。"
       }
-    ]
+    ],
+    "kana": "きまぐれなうらないし"
   },
   {
     "key": "KNIGHT",
@@ -862,7 +889,8 @@ window.ONW_WIKI_ROLES = [
         "name": "鉄壁の守護",
         "desc": "騎士で勝利する。"
       }
-    ]
+    ],
+    "kana": "きし"
   },
   {
     "key": "FAKE_SEER",
@@ -907,7 +935,8 @@ window.ONW_WIKI_ROLES = [
         "name": "完全に占い師",
         "desc": "偽占い師の結果が2回以上実際の役職と一致する。"
       }
-    ]
+    ],
+    "kana": "にせうらないし"
   },
   {
     "key": "MASON",
@@ -937,7 +966,8 @@ window.ONW_WIKI_ROLES = [
         "name": "固い絆の勝利",
         "desc": "共有者で勝利する。"
       }
-    ]
+    ],
+    "kana": "きょうゆうしゃ"
   },
   {
     "key": "APPRENTICE_SEER",
@@ -982,7 +1012,8 @@ window.ONW_WIKI_ROLES = [
         "name": "見習いの占い師で初勝利",
         "desc": "見習いの占い師で勝利する。"
       }
-    ]
+    ],
+    "kana": "みならいのうらないし"
   },
   {
     "key": "LOOKOUT",
@@ -1027,7 +1058,8 @@ window.ONW_WIKI_ROLES = [
         "name": "見張り番で初勝利",
         "desc": "見張り番で勝利する。"
       }
-    ]
+    ],
+    "kana": "みはりばん"
   },
   {
     "key": "KEYMASTER",
@@ -1082,7 +1114,8 @@ window.ONW_WIKI_ROLES = [
         "name": "シュッフル禁止令",
         "desc": "ロックによってシャッフラーの変化を失敗させる。"
       }
-    ]
+    ],
+    "kana": "かぎし"
   },
   {
     "key": "FOX_MARKED",
@@ -1102,7 +1135,8 @@ window.ONW_WIKI_ROLES = [
         "name": "呪いと共に生き残る",
         "desc": "狐憑きで勝利する。"
       }
-    ]
+    ],
+    "kana": "きつねつき"
   },
   {
     "key": "INSOMNIAC",
@@ -1137,7 +1171,8 @@ window.ONW_WIKI_ROLES = [
         "name": "夜明けに知る真実",
         "desc": "後覚者で勝利する。"
       }
-    ]
+    ],
+    "kana": "こうかくしゃ"
   },
   {
     "key": "GORANSHIN",
@@ -1162,7 +1197,8 @@ window.ONW_WIKI_ROLES = [
         "name": "ぴ〜〜ぶ〜〜",
         "desc": "御乱心で敗北する。"
       }
-    ]
+    ],
+    "kana": "ごらんしん"
   },
   {
     "key": "EXCHANGER",
@@ -1197,7 +1233,8 @@ window.ONW_WIKI_ROLES = [
         "name": "票の行方は掌の上",
         "desc": "交換者で勝利する。"
       }
-    ]
+    ],
+    "kana": "こうかんしゃ"
   },
   {
     "key": "LIGHT_APOSTLE",
@@ -1206,7 +1243,8 @@ window.ONW_WIKI_ROLES = [
     "team": "village",
     "order": 1,
     "desc": "試合開始時に村人陣営の役職へランダムに変化します。新聞結果には表示されません。",
-    "achievements": []
+    "achievements": [],
+    "kana": "ひかりのしと"
   },
   {
     "key": "FINGER_READER",
@@ -1231,7 +1269,8 @@ window.ONW_WIKI_ROLES = [
         "name": "二本指の追憶",
         "desc": "指読みで敗北する。"
       }
-    ]
+    ],
+    "kana": "ゆびよみ"
   },
   {
     "key": "POET",
@@ -1256,7 +1295,8 @@ window.ONW_WIKI_ROLES = [
         "name": "勝利を詠う詩人",
         "desc": "詩人で勝利する。"
       }
-    ]
+    ],
+    "kana": "しじん"
   },
   {
     "key": "CURSED_ONE",
@@ -1276,7 +1316,8 @@ window.ONW_WIKI_ROLES = [
         "name": "呪いを退けた朝",
         "desc": "呪われし者で勝利する。"
       }
-    ]
+    ],
+    "kana": "のろわれしもの"
   },
   {
     "key": "QUEEN",
@@ -1306,7 +1347,8 @@ window.ONW_WIKI_ROLES = [
         "name": "二つの王冠",
         "desc": "最終役職が女王のプレイヤーが2人以上生存して勝利する。"
       }
-    ]
+    ],
+    "kana": "じょおう"
   },
   {
     "key": "MAJOR",
@@ -1326,7 +1368,8 @@ window.ONW_WIKI_ROLES = [
         "name": "顔を上げて進み続けなさい",
         "desc": "少佐の身代わり能力で死亡する。"
       }
-    ]
+    ],
+    "kana": "しょうさ"
   },
   {
     "key": "PSYCHOLOGIST",
@@ -1376,7 +1419,8 @@ window.ONW_WIKI_ROLES = [
         "name": "心理士で初勝利",
         "desc": "心理士で勝利する。"
       }
-    ]
+    ],
+    "kana": "しんりし"
   },
   {
     "key": "NEWSPAPER",
@@ -1406,7 +1450,8 @@ window.ONW_WIKI_ROLES = [
         "name": "勝利を告げる号外",
         "desc": "新聞配達員で勝利する。"
       }
-    ]
+    ],
+    "kana": "しんぶんはいたついん"
   },
   {
     "key": "PRIEST",
@@ -1431,7 +1476,8 @@ window.ONW_WIKI_ROLES = [
         "name": "奇跡の立会人",
         "desc": "神の勝利によって村人陣営を追加勝利させる。"
       }
-    ]
+    ],
+    "kana": "しんかん"
   },
   {
     "key": "SEER",
@@ -1486,7 +1532,8 @@ window.ONW_WIKI_ROLES = [
         "name": "水晶玉の裏表",
         "desc": "占い師と狂った占い師が同じプレイヤーを占う。"
       }
-    ]
+    ],
+    "kana": "うらないし"
   },
   {
     "key": "ELECTION_MANAGER",
@@ -1516,7 +1563,8 @@ window.ONW_WIKI_ROLES = [
         "name": "風向きの変化",
         "desc": "他のプレイヤーが投票先を変更する瞬間を確認する。"
       }
-    ]
+    ],
+    "kana": "せんきょかんりいいん"
   },
   {
     "key": "VILLAGER",
@@ -1541,7 +1589,8 @@ window.ONW_WIKI_ROLES = [
         "name": "静かな村の守り手",
         "desc": "村人で生存したまま勝利する。"
       }
-    ]
+    ],
+    "kana": "むらびと"
   },
   {
     "key": "LIBRA",
@@ -1576,7 +1625,8 @@ window.ONW_WIKI_ROLES = [
         "name": "秤が選んだ勝者",
         "desc": "能力で選んだ2人のうち、生存した片方だけが勝利する。"
       }
-    ]
+    ],
+    "kana": "てんびん"
   },
   {
     "key": "THIEF",
@@ -1606,7 +1656,8 @@ window.ONW_WIKI_ROLES = [
         "name": "盗んだ票で掴む勝利",
         "desc": "盗賊で勝利する。"
       }
-    ]
+    ],
+    "kana": "とうぞく"
   },
   {
     "key": "DICTATOR",
@@ -1636,7 +1687,8 @@ window.ONW_WIKI_ROLES = [
         "name": "我が一声で決着を",
         "desc": "独裁者で勝利する。"
       }
-    ]
+    ],
+    "kana": "どくさいしゃ"
   },
   {
     "key": "CAT_SIDHE",
@@ -1671,7 +1723,8 @@ window.ONW_WIKI_ROLES = [
         "name": "王冠を連れていく猫",
         "desc": "猫又で女王を道連れにする。"
       }
-    ]
+    ],
+    "kana": "ねこまた"
   },
   {
     "key": "WATCHDOG",
@@ -1706,7 +1759,8 @@ window.ONW_WIKI_ROLES = [
         "name": "女王様の愛犬",
         "desc": "女王を飼い主にした番犬が勝利する。"
       }
-    ]
+    ],
+    "kana": "ばんけん"
   },
   {
     "key": "PRINCESS",
@@ -1751,7 +1805,8 @@ window.ONW_WIKI_ROLES = [
         "name": "王国最後の希望",
         "desc": "女王の恋人心中後に即位し、王国滅亡を防ぐ。"
       }
-    ]
+    ],
+    "kana": "ひめぎみ"
   },
   {
     "key": "SHERIFF",
@@ -1791,7 +1846,8 @@ window.ONW_WIKI_ROLES = [
         "name": "愛ゆえの誤爆",
         "desc": "自分の恋人を保安官能力で撃つ。"
       }
-    ]
+    ],
+    "kana": "ほあんかん"
   },
   {
     "key": "RELIC_ROBBER",
@@ -1841,7 +1897,8 @@ window.ONW_WIKI_ROLES = [
         "name": "なんだよすでに荒らされてるじゃねえか",
         "desc": "他の墓荒らしにすでに盗まれている墓から役職を盗む。"
       }
-    ]
+    ],
+    "kana": "はかあらし"
   },
   {
     "key": "VISITOR",
@@ -1866,7 +1923,8 @@ window.ONW_WIKI_ROLES = [
         "name": "足跡が導いた勝利",
         "desc": "訪問者で勝利する。"
       }
-    ]
+    ],
+    "kana": "ほうもんしゃ"
   },
   {
     "key": "FAIRY",
@@ -1891,7 +1949,8 @@ window.ONW_WIKI_ROLES = [
         "name": "ハーイ♪あたしに会いたかった？",
         "desc": "妖精さんのバリアで1票を防ぐ。"
       }
-    ]
+    ],
+    "kana": "ようせいさん"
   },
   {
     "key": "BELL_MIKO",
@@ -1941,7 +2000,8 @@ window.ONW_WIKI_ROLES = [
         "name": "鈴の巫女で初勝利",
         "desc": "鈴の巫女で勝利する。"
       }
-    ]
+    ],
+    "kana": "すずのみこ"
   },
   {
     "key": "MEDIUM",
@@ -1961,7 +2021,8 @@ window.ONW_WIKI_ROLES = [
         "name": "冥界からの助言",
         "desc": "霊媒師で勝利する。"
       }
-    ]
+    ],
+    "kana": "れいばいし"
   },
   {
     "key": "WOLF_DREAMER",
@@ -1991,7 +2052,8 @@ window.ONW_WIKI_ROLES = [
         "name": "夢の中から狼へ一票",
         "desc": "狼夢人で人狼陣営に投票する。"
       }
-    ]
+    ],
+    "kana": "おおかみゆめびと"
   },
   {
     "key": "WOLF_MARKED",
@@ -2011,7 +2073,8 @@ window.ONW_WIKI_ROLES = [
         "name": "疑いを越えた勝利",
         "desc": "狼憑きで勝利する。"
       }
-    ]
+    ],
+    "kana": "おおかみつき"
   },
   {
     "key": "AGITATOR",
@@ -2051,7 +2114,8 @@ window.ONW_WIKI_ROLES = [
         "name": "大衆への誘導",
         "desc": "煽動者で勝利する。"
       }
-    ]
+    ],
+    "kana": "せんどうしゃ"
   },
   {
     "key": "COUNSELOR",
@@ -2086,7 +2150,8 @@ window.ONW_WIKI_ROLES = [
         "name": "ズレた好意",
         "desc": "狂人以外に対して能力を使う。"
       }
-    ]
+    ],
+    "kana": "カウンセラー"
   },
   {
     "key": "DONUT_SHOP",
@@ -2131,7 +2196,8 @@ window.ONW_WIKI_ROLES = [
         "name": "注文の多いドーナツ店",
         "desc": "ドーナツ屋で勝利する。"
       }
-    ]
+    ],
+    "kana": "どーなつや"
   },
   {
     "key": "HAYATOCHIRI",
@@ -2161,7 +2227,8 @@ window.ONW_WIKI_ROLES = [
         "name": "早とちりで初勝利",
         "desc": "早とちりで勝利する。"
       }
-    ]
+    ],
+    "kana": "はやとちり"
   },
   {
     "key": "HUNTER",
@@ -2196,7 +2263,8 @@ window.ONW_WIKI_ROLES = [
         "name": "死してなお人外を狩る",
         "desc": "ハンターで村人陣営以外を道連れにする。"
       }
-    ]
+    ],
+    "kana": "ハンター"
   },
   {
     "key": "NECROMANCER",
@@ -2216,7 +2284,8 @@ window.ONW_WIKI_ROLES = [
         "name": "死者への手向け",
         "desc": "ネクロマンサーで勝利する。"
       }
-    ]
+    ],
+    "kana": "ネクロマンサー"
   },
   {
     "key": "REN",
@@ -2246,7 +2315,8 @@ window.ONW_WIKI_ROLES = [
         "name": "ジュジュシールド！！",
         "desc": "レンで勝利する。"
       }
-    ]
+    ],
+    "kana": "レン"
   },
   {
     "key": "SCREW_GUM",
@@ -2266,7 +2336,8 @@ window.ONW_WIKI_ROLES = [
         "name": "スクリューガムで初勝利",
         "desc": "スクリューガムで勝利する。"
       }
-    ]
+    ],
+    "kana": "スクリューガム"
   },
   {
     "key": "TRAP_MASTER",
@@ -2275,7 +2346,8 @@ window.ONW_WIKI_ROLES = [
     "team": "village",
     "order": 70,
     "desc": "夜に選んだプレイヤーに罠を張ります。\n人狼陣営か第三陣営が罠を張られたプレイヤーに\n昼能力を使おうとすると失敗し\n投票権が失われます。",
-    "achievements": []
+    "achievements": [],
+    "kana": "わなし"
   },
   {
     "key": "ASSASSIN",
@@ -2310,7 +2382,8 @@ window.ONW_WIKI_ROLES = [
         "name": "マーリン狩り",
         "desc": "アサシンで勝利する。"
       }
-    ]
+    ],
+    "kana": "アサシン"
   },
   {
     "key": "SAM",
@@ -2319,7 +2392,8 @@ window.ONW_WIKI_ROLES = [
     "team": "wolf",
     "order": 170,
     "desc": "ホタルが変身した姿です。人狼陣営として勝利します。盤面に本物の銀狼がいる場合、銀狼にはサムの存在が通知されます。",
-    "achievements": []
+    "achievements": [],
+    "kana": "サム"
   },
   {
     "key": "CAT_PUMPKIN",
@@ -2354,7 +2428,8 @@ window.ONW_WIKI_ROLES = [
         "name": "道連れの収穫祭",
         "desc": "ネコカボチャで勝利する。"
       }
-    ]
+    ],
+    "kana": "ネコカボチャ"
   },
   {
     "key": "DARK_AVATAR",
@@ -2363,7 +2438,8 @@ window.ONW_WIKI_ROLES = [
     "team": "wolf",
     "order": 71,
     "desc": "試合開始時に人狼陣営の役職へランダムに変化します。新聞結果には表示されません。",
-    "achievements": []
+    "achievements": [],
+    "kana": "やみのけしん"
   },
   {
     "key": "LONE_WOLF",
@@ -2383,7 +2459,8 @@ window.ONW_WIKI_ROLES = [
         "name": "孤狼の生存術",
         "desc": "一匹狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "いっぴきおおかみ"
   },
   {
     "key": "SMOKE_MADMAN",
@@ -2408,7 +2485,8 @@ window.ONW_WIKI_ROLES = [
         "name": "煙の中の勝利",
         "desc": "煙幕の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "えんまくのきょうじん"
   },
   {
     "key": "MONKEY_MADMAN",
@@ -2433,7 +2511,8 @@ window.ONW_WIKI_ROLES = [
         "name": "猿も木から勝ち上がる",
         "desc": "猿の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "さるのきょうじん"
   },
   {
     "key": "OBSERVER_WOLF",
@@ -2458,7 +2537,8 @@ window.ONW_WIKI_ROLES = [
         "name": "観測された勝利",
         "desc": "観測の人狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "かんそくのじんろう"
   },
   {
     "key": "OX_MADMAN",
@@ -2483,7 +2563,8 @@ window.ONW_WIKI_ROLES = [
         "name": "牛の歩みも千里",
         "desc": "牛の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "うしのきょうじん"
   },
   {
     "key": "MAD_MAYOR",
@@ -2513,7 +2594,8 @@ window.ONW_WIKI_ROLES = [
         "name": "狂票の采配",
         "desc": "狂ったメイヤーで勝利する。"
       }
-    ]
+    ],
+    "kana": "くるっためいやー"
   },
   {
     "key": "MAD_EXCHANGER",
@@ -2548,7 +2630,8 @@ window.ONW_WIKI_ROLES = [
         "name": "票を狂わせる勝利",
         "desc": "狂った交換者で勝利する。"
       }
-    ]
+    ],
+    "kana": "くるったこうかんしゃ"
   },
   {
     "key": "MAD_QUEEN",
@@ -2573,7 +2656,8 @@ window.ONW_WIKI_ROLES = [
         "name": "王冠に潜む狂気",
         "desc": "狂った女王で勝利する。"
       }
-    ]
+    ],
+    "kana": "くるったじょおう"
   },
   {
     "key": "MAD_PRIEST",
@@ -2608,7 +2692,8 @@ window.ONW_WIKI_ROLES = [
         "name": "狂った神官で初勝利",
         "desc": "狂った神官で勝利する。"
       }
-    ]
+    ],
+    "kana": "くるったしんかん"
   },
   {
     "key": "MAD_SEER",
@@ -2658,7 +2743,8 @@ window.ONW_WIKI_ROLES = [
         "name": "嘘も真実も狼のために",
         "desc": "狂った占い師で勝利する。"
       }
-    ]
+    ],
+    "kana": "くるったうらないし"
   },
   {
     "key": "CULTIST",
@@ -2683,7 +2769,8 @@ window.ONW_WIKI_ROLES = [
         "name": "信仰の果てに",
         "desc": "狂信者で勝利する。"
       }
-    ]
+    ],
+    "kana": "きょうしんしゃ"
   },
   {
     "key": "MADMAN",
@@ -2713,7 +2800,8 @@ window.ONW_WIKI_ROLES = [
         "name": "ご主人様の勝利",
         "desc": "狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "きょうじん"
   },
   {
     "key": "SILVER_WOLF",
@@ -2743,7 +2831,8 @@ window.ONW_WIKI_ROLES = [
         "name": "このゲーム、いただき♪",
         "desc": "銀狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "ぎんろう"
   },
   {
     "key": "ROOSTER_MADMAN",
@@ -2768,7 +2857,8 @@ window.ONW_WIKI_ROLES = [
         "name": "朝を告げる頃にはもう遅い",
         "desc": "鶏の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "にわとりのきょうじん"
   },
   {
     "key": "DOG_MADMAN",
@@ -2793,7 +2883,8 @@ window.ONW_WIKI_ROLES = [
         "name": "犬も歩けば狂ってる",
         "desc": "犬の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "いぬのきょうじん"
   },
   {
     "key": "TIGER_MADMAN",
@@ -2818,7 +2909,8 @@ window.ONW_WIKI_ROLES = [
         "name": "虎の威を借る狂人",
         "desc": "虎の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "とらのきょうじん"
   },
   {
     "key": "MUZZLE_MADMAN",
@@ -2848,7 +2940,8 @@ window.ONW_WIKI_ROLES = [
         "name": "沈黙の勝利",
         "desc": "口封じの狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "くちふうじのきょうじん"
   },
   {
     "key": "BLACK_WOLF_MADMAN",
@@ -2873,7 +2966,8 @@ window.ONW_WIKI_ROLES = [
         "name": "影から支えた勝利",
         "desc": "黒子の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "くろこのきょうじん"
   },
   {
     "key": "BLACK_CAT",
@@ -2903,7 +2997,8 @@ window.ONW_WIKI_ROLES = [
         "name": "爪痕を残す勝利",
         "desc": "黒猫で勝利する。"
       }
-    ]
+    ],
+    "kana": "くろねこ"
   },
   {
     "key": "TENACIOUS_MADMAN",
@@ -2928,7 +3023,8 @@ window.ONW_WIKI_ROLES = [
         "name": "生きてこその狂気",
         "desc": "執念の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "しゅうねんのきょうじん"
   },
   {
     "key": "SNAKE_MADMAN",
@@ -2953,7 +3049,8 @@ window.ONW_WIKI_ROLES = [
         "name": "致命の一滴",
         "desc": "蛇の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "へびのきょうじん"
   },
   {
     "key": "CURSE_WOLF",
@@ -2983,7 +3080,8 @@ window.ONW_WIKI_ROLES = [
         "name": "狼の呪詛",
         "desc": "呪術の人狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "じゅじゅつのじんろう"
   },
   {
     "key": "MIND_WOLF",
@@ -3033,7 +3131,8 @@ window.ONW_WIKI_ROLES = [
         "name": "正体を見抜く狼",
         "desc": "心眼の人狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "しんがんのじんろう"
   },
   {
     "key": "WEREWOLF",
@@ -3058,7 +3157,8 @@ window.ONW_WIKI_ROLES = [
         "name": "孤独な遠吠え",
         "desc": "人狼で相方がいないまま試合を終える。"
       }
-    ]
+    ],
+    "kana": "じんろう"
   },
   {
     "key": "WOLF_KING",
@@ -3093,7 +3193,8 @@ window.ONW_WIKI_ROLES = [
         "name": "玉座に残る狼",
         "desc": "人狼王で勝利する。"
       }
-    ]
+    ],
+    "kana": "じんろうおう"
   },
   {
     "key": "RAT_MADMAN",
@@ -3128,7 +3229,8 @@ window.ONW_WIKI_ROLES = [
         "name": "一鼠報いる",
         "desc": "鼠の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "ねずみのきょうじん"
   },
   {
     "key": "BIG_WOLF",
@@ -3153,7 +3255,8 @@ window.ONW_WIKI_ROLES = [
         "name": "死者を知る支配者",
         "desc": "大狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "たいろう"
   },
   {
     "key": "BOAR_MADMAN",
@@ -3183,7 +3286,8 @@ window.ONW_WIKI_ROLES = [
         "name": "一直線の勝利",
         "desc": "猪の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "いのししのきょうじん"
   },
   {
     "key": "RABBIT_MADMAN",
@@ -3208,7 +3312,8 @@ window.ONW_WIKI_ROLES = [
         "name": "脱兎のごとく",
         "desc": "兎の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "うさぎのきょうじん"
   },
   {
     "key": "COMMAND_WOLF",
@@ -3243,7 +3348,8 @@ window.ONW_WIKI_ROLES = [
         "name": "群れを束ねる牙",
         "desc": "統率の人狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "とうそつのじんろう"
   },
   {
     "key": "TOFU_WOLF",
@@ -3273,7 +3379,8 @@ window.ONW_WIKI_ROLES = [
         "name": "崩れぬ豆腐",
         "desc": "豆腐の人狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "とうふのじんろう"
   },
   {
     "key": "JESTER_MADMAN",
@@ -3298,7 +3405,8 @@ window.ONW_WIKI_ROLES = [
         "name": "最後に笑う道化",
         "desc": "道化の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "どうけのきょうじん"
   },
   {
     "key": "NEGI_WOLF",
@@ -3318,7 +3426,8 @@ window.ONW_WIKI_ROLES = [
         "name": "葱は添えるだけ",
         "desc": "葱の人狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "ねぎのじんろう"
   },
   {
     "key": "HORSE_MADMAN",
@@ -3343,7 +3452,8 @@ window.ONW_WIKI_ROLES = [
         "name": "勝ち馬に乗る",
         "desc": "馬の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "うまのきょうじん"
   },
   {
     "key": "WHITE_WOLF",
@@ -3368,7 +3478,8 @@ window.ONW_WIKI_ROLES = [
         "name": "疑われぬ牙",
         "desc": "白狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "はくろう"
   },
   {
     "key": "REBEL_MADMAN",
@@ -3393,7 +3504,8 @@ window.ONW_WIKI_ROLES = [
         "name": "クーデター成功",
         "desc": "反逆の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "はんぎゃくのきょうじん"
   },
   {
     "key": "SEAL_MADMAN",
@@ -3428,7 +3540,8 @@ window.ONW_WIKI_ROLES = [
         "name": "能力封じの勝利",
         "desc": "封印の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "ふういんのきょうじん"
   },
   {
     "key": "FORGETFUL_WOLF",
@@ -3453,7 +3566,8 @@ window.ONW_WIKI_ROLES = [
         "name": "思い出さぬまま勝利",
         "desc": "忘却の人狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "ぼうきゃくのじんろう"
   },
   {
     "key": "EXPOSED_MADMAN",
@@ -3498,7 +3612,8 @@ window.ONW_WIKI_ROLES = [
         "name": "暴露が招いた勝利",
         "desc": "暴露狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "ばくろきょうじん"
   },
   {
     "key": "MAPO_WOLF",
@@ -3528,7 +3643,8 @@ window.ONW_WIKI_ROLES = [
         "name": "麻婆豆腐完成",
         "desc": "麻婆の人狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "まーぼーのじんろう"
   },
   {
     "key": "ERASER_WOLF",
@@ -3573,7 +3689,8 @@ window.ONW_WIKI_ROLES = [
         "name": "抹消完了",
         "desc": "抹消の人狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "まっしょうのじんろう"
   },
   {
     "key": "MIMIC_WOLF",
@@ -3618,7 +3735,8 @@ window.ONW_WIKI_ROLES = [
         "name": "敵国に執行された女王",
         "desc": "女王を模倣保安官能力で執行する。"
       }
-    ]
+    ],
+    "kana": "もほうのじんろう"
   },
   {
     "key": "SHEEP_MADMAN",
@@ -3643,7 +3761,8 @@ window.ONW_WIKI_ROLES = [
         "name": "群れに紛れた狂気",
         "desc": "羊の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "ひつじのきょうじん"
   },
   {
     "key": "DRAGON_MADMAN",
@@ -3668,7 +3787,8 @@ window.ONW_WIKI_ROLES = [
         "name": "天翔ける龍",
         "desc": "龍の狂人で勝利する。"
       }
-    ]
+    ],
+    "kana": "りゅうのきょうじん"
   },
   {
     "key": "MIRAGE_WOLF",
@@ -3703,7 +3823,8 @@ window.ONW_WIKI_ROLES = [
         "name": "蜃気楼の使い手",
         "desc": "蜃気狼で勝利する。"
       }
-    ]
+    ],
+    "kana": "しんきろう"
   },
   {
     "key": "CRAZY_DONUT_SHOP",
@@ -3728,7 +3849,8 @@ window.ONW_WIKI_ROLES = [
         "name": "粗悪品の流通成功",
         "desc": "狂ったドーナツ屋で勝利する。"
       }
-    ]
+    ],
+    "kana": "くるったどーなつや"
   },
   {
     "key": "MAD_AGITATOR",
@@ -3758,7 +3880,8 @@ window.ONW_WIKI_ROLES = [
         "name": "狂気の誘導",
         "desc": "狂った煽動者で勝利する。"
       }
-    ]
+    ],
+    "kana": "くるったせんどうしゃ"
   },
   {
     "key": "PATCH",
@@ -3788,7 +3911,8 @@ window.ONW_WIKI_ROLES = [
         "name": "…そりゃあ、いつかこうなるわなクソったれが…",
         "desc": "パッチの能力を発動し、墓地から人狼系役職を奪う。"
       }
-    ]
+    ],
+    "kana": "パッチ"
   },
   {
     "key": "VANITY",
@@ -3818,7 +3942,8 @@ window.ONW_WIKI_ROLES = [
         "name": "胸に宿る正義",
         "desc": "初めてヴァニティになる。"
       }
-    ]
+    ],
+    "kana": "ヴァニティ"
   },
   {
     "key": "ELFRINDE",
@@ -3853,7 +3978,8 @@ window.ONW_WIKI_ROLES = [
         "name": "Ⅰ.THE LANCE",
         "desc": "エルフリンデで勝利する。"
       }
-    ]
+    ],
+    "kana": "エルフリンデ"
   },
   {
     "key": "OPPORTUNIST",
@@ -3898,7 +4024,8 @@ window.ONW_WIKI_ROLES = [
         "name": "機会を掴んだ者",
         "desc": "オポチュニストで勝利する。"
       }
-    ]
+    ],
+    "kana": "オポチュニスト"
   },
   {
     "key": "CUPID",
@@ -3918,7 +4045,8 @@ window.ONW_WIKI_ROLES = [
         "name": "恋人たちの勝利",
         "desc": "キューピッドで勝利する。"
       }
-    ]
+    ],
+    "kana": "キューピッド"
   },
   {
     "key": "GREMLIN",
@@ -3968,7 +4096,8 @@ window.ONW_WIKI_ROLES = [
         "name": "敗北の感染",
         "desc": "グレムリンで負け組をコピーする。"
       }
-    ]
+    ],
+    "kana": "グレムリン"
   },
   {
     "key": "CHESED",
@@ -3993,7 +4122,8 @@ window.ONW_WIKI_ROLES = [
         "name": "カフェイン中毒",
         "desc": "ケセドで敗北する。"
       }
-    ]
+    ],
+    "kana": "ケセド"
   },
   {
     "key": "SHUFFLER",
@@ -4023,7 +4153,8 @@ window.ONW_WIKI_ROLES = [
         "name": "運命を書き換える者",
         "desc": "シャッフラーで勝利する。"
       }
-    ]
+    ],
+    "kana": "シャッフラー"
   },
   {
     "key": "SCHRODINGER_CAT",
@@ -4058,7 +4189,8 @@ window.ONW_WIKI_ROLES = [
         "name": "観測された勝者",
         "desc": "シュレディンガーの猫で勝利する。"
       }
-    ]
+    ],
+    "kana": "しゅれでぃんがーのねこ"
   },
   {
     "key": "TANNER",
@@ -4083,7 +4215,8 @@ window.ONW_WIKI_ROLES = [
         "name": "混戦のてるてる",
         "desc": "てるてる坊主で2人以上追放されたうえで勝利する。"
       }
-    ]
+    ],
+    "kana": "てるてるぼうず"
   },
   {
     "key": "NANOKA",
@@ -4123,7 +4256,8 @@ window.ONW_WIKI_ROLES = [
         "name": "今からウチは羅刹だよ～",
         "desc": "羅刹で勝利する。"
       }
-    ]
+    ],
+    "kana": "なのか"
   },
   {
     "key": "BALANCER",
@@ -4148,7 +4282,8 @@ window.ONW_WIKI_ROLES = [
         "name": "完璧な均衡",
         "desc": "バランサーで勝利する。"
       }
-    ]
+    ],
+    "kana": "バランサー"
   },
   {
     "key": "FREETER",
@@ -4178,7 +4313,8 @@ window.ONW_WIKI_ROLES = [
         "name": "転職しました！",
         "desc": "フリーターで再就職する。"
       }
-    ]
+    ],
+    "kana": "フリーター"
   },
   {
     "key": "PERSONA",
@@ -4203,7 +4339,8 @@ window.ONW_WIKI_ROLES = [
         "name": "心の怪盗団",
         "desc": "怪盗にペルソナを盗まれる。"
       }
-    ]
+    ],
+    "kana": "ペルソナ"
   },
   {
     "key": "HOTARU",
@@ -4233,7 +4370,8 @@ window.ONW_WIKI_ROLES = [
         "name": "ホタルよ、生きるために死ぬのだと",
         "desc": "ホタルで勝利する。"
       }
-    ]
+    ],
+    "kana": "ホタル"
   },
   {
     "key": "MATTHIAS",
@@ -4273,7 +4411,8 @@ window.ONW_WIKI_ROLES = [
         "name": "はじめてのマティアス",
         "desc": "初めてマティアスになる。"
       }
-    ]
+    ],
+    "kana": "マティアス"
   },
   {
     "key": "EVIL_WOMAN",
@@ -4308,7 +4447,8 @@ window.ONW_WIKI_ROLES = [
         "name": "悪女の恋愛成就",
         "desc": "悪女で勝利する。"
       }
-    ]
+    ],
+    "kana": "あくじょ"
   },
   {
     "key": "LOVE_TANNER",
@@ -4333,7 +4473,8 @@ window.ONW_WIKI_ROLES = [
         "name": "愛と追放の結末",
         "desc": "一目惚れしてるてるで勝利する。"
       }
-    ]
+    ],
+    "kana": "ひとめぼれしてるてる"
   },
   {
     "key": "SILVER_SHADOW",
@@ -4342,7 +4483,8 @@ window.ONW_WIKI_ROLES = [
     "team": "third",
     "order": 122,
     "desc": "試合開始時に第三陣営の役職へランダムに変化します。ドッペルゲンガーになることもあります。新聞結果には表示されません。",
-    "achievements": []
+    "achievements": [],
+    "kana": "ぎんいろのかげ"
   },
   {
     "key": "BEGGAR",
@@ -4382,7 +4524,8 @@ window.ONW_WIKI_ROLES = [
         "name": "お恵みありがとうございます。",
         "desc": "乞食で勝利する。"
       }
-    ]
+    ],
+    "kana": "こじき"
   },
   {
     "key": "MITSUKI_NANOKA",
@@ -4391,7 +4534,8 @@ window.ONW_WIKI_ROLES = [
     "team": "third",
     "order": 164,
     "desc": "昼能力で写真撮影を行い、対象の陣営を確認できます。撮影相手が村人の気配なら追加勝利します。",
-    "achievements": []
+    "achievements": [],
+    "kana": "みつきなのか"
   },
   {
     "key": "THREAD_SPINNER",
@@ -4426,7 +4570,8 @@ window.ONW_WIKI_ROLES = [
         "name": "強固な糸",
         "desc": "糸紡ぎで勝利する。"
       }
-    ]
+    ],
+    "kana": "いとつむぎ"
   },
   {
     "key": "SERVANT",
@@ -4461,7 +4606,8 @@ window.ONW_WIKI_ROLES = [
         "name": "王国の盾",
         "desc": "女王を保安官の執行から身代わりで守る。"
       }
-    ]
+    ],
+    "kana": "じゅうしゃ"
   },
   {
     "key": "MARTYR",
@@ -4491,7 +4637,8 @@ window.ONW_WIKI_ROLES = [
         "name": "名誉ある殉職",
         "desc": "殉職者で勝利する。"
       }
-    ]
+    ],
+    "kana": "じゅんしょくしゃ"
   },
   {
     "key": "PURE_LOVER",
@@ -4511,7 +4658,8 @@ window.ONW_WIKI_ROLES = [
         "name": "愛を貫いた勝利",
         "desc": "純愛者で勝利する。"
       }
-    ]
+    ],
+    "kana": "じゅんあいしゃ"
   },
   {
     "key": "EXECUTIONER",
@@ -4531,7 +4679,8 @@ window.ONW_WIKI_ROLES = [
         "name": "処刑人で初勝利",
         "desc": "処刑人で勝利する。"
       }
-    ]
+    ],
+    "kana": "しょけいにん"
   },
   {
     "key": "WINNER",
@@ -4571,7 +4720,8 @@ window.ONW_WIKI_ROLES = [
         "name": "勝ち組3人組",
         "desc": "グレムリンで勝ち組をコピーする。"
       }
-    ]
+    ],
+    "kana": "かちぐみ"
   },
   {
     "key": "WAGERER",
@@ -4596,7 +4746,8 @@ window.ONW_WIKI_ROLES = [
         "name": "運命に賭ける者",
         "desc": "初めて勝負師になる。"
       }
-    ]
+    ],
+    "kana": "しょうぶし"
   },
   {
     "key": "BOUNTY_HUNTER",
@@ -4621,7 +4772,8 @@ window.ONW_WIKI_ROLES = [
         "name": "賞金獲得",
         "desc": "賞金稼ぎで勝利する。"
       }
-    ]
+    ],
+    "kana": "しょうきんかせぎ"
   },
   {
     "key": "GOD",
@@ -4646,7 +4798,8 @@ window.ONW_WIKI_ROLES = [
         "name": "神の祝福",
         "desc": "神で勝利する。"
       }
-    ]
+    ],
+    "kana": "かみ"
   },
   {
     "key": "WATCHER",
@@ -4691,7 +4844,8 @@ window.ONW_WIKI_ROLES = [
         "name": "誰にも気づかれず",
         "desc": "静観者で勝利する。"
       }
-    ]
+    ],
+    "kana": "せいかんしゃ"
   },
   {
     "key": "AGENT",
@@ -4716,7 +4870,8 @@ window.ONW_WIKI_ROLES = [
         "name": "無我夢中、阿鼻叫喚、支離滅裂",
         "desc": "代行者で勝利する。"
       }
-    ]
+    ],
+    "kana": "だいこうしゃ"
   },
   {
     "key": "LONG_NIGHT_MOON",
@@ -4725,7 +4880,8 @@ window.ONW_WIKI_ROLES = [
     "team": "third",
     "order": 165,
     "desc": "ランダムな他プレイヤーに長夜を付与します。長夜が付いた人に投票され、かつ死亡すると追加勝利します。",
-    "achievements": []
+    "achievements": [],
+    "kana": "ながよづき"
   },
   {
     "key": "AMANOJAKU",
@@ -4750,7 +4906,8 @@ window.ONW_WIKI_ROLES = [
         "name": "逆張り成功",
         "desc": "天邪鬼で勝利する。"
       }
-    ]
+    ],
+    "kana": "あまのじゃく"
   },
   {
     "key": "JESTER_BOMBER",
@@ -4790,7 +4947,8 @@ window.ONW_WIKI_ROLES = [
         "name": "最後の大爆発",
         "desc": "道化の爆弾魔で勝利する。"
       }
-    ]
+    ],
+    "kana": "どうけのばくだんま"
   },
   {
     "key": "HEARTBREAKER",
@@ -4825,7 +4983,8 @@ window.ONW_WIKI_ROLES = [
         "name": "破局成立",
         "desc": "破局師で勝利する。"
       }
-    ]
+    ],
+    "kana": "はきょくし"
   },
   {
     "key": "FANATIC",
@@ -4855,7 +5014,8 @@ window.ONW_WIKI_ROLES = [
         "name": "ご主人様との勝利",
         "desc": "背徳者で勝利する。"
       }
-    ]
+    ],
+    "kana": "はいとくしゃ"
   },
   {
     "key": "REVERSER",
@@ -4895,7 +5055,8 @@ window.ONW_WIKI_ROLES = [
         "name": "敗北から生まれた勝利",
         "desc": "反転者で勝利する。"
       }
-    ]
+    ],
+    "kana": "はんてんしゃ"
   },
   {
     "key": "LOSER",
@@ -4930,7 +5091,8 @@ window.ONW_WIKI_ROLES = [
         "name": "負けを背負う者",
         "desc": "初めて負け組になる。"
       }
-    ]
+    ],
+    "kana": "まけぐみ"
   },
   {
     "key": "AVENGER",
@@ -4955,7 +5117,8 @@ window.ONW_WIKI_ROLES = [
         "name": "復讐完遂",
         "desc": "復讐者で勝利する。"
       }
-    ]
+    ],
+    "kana": "ふくしゅうしゃ"
   },
   {
     "key": "LAWYER",
@@ -5000,7 +5163,8 @@ window.ONW_WIKI_ROLES = [
         "name": "依頼人変更",
         "desc": "役職交換によって依頼人が別プレイヤーへ移動する。"
       }
-    ]
+    ],
+    "kana": "べんごし"
   },
   {
     "key": "DEMON_DUKE",
@@ -5045,7 +5209,8 @@ window.ONW_WIKI_ROLES = [
         "name": "魔界の誤審",
         "desc": "魔界公爵追放会議で魔界公爵以外が追放される。"
       }
-    ]
+    ],
+    "kana": "まかいこうしゃく"
   },
   {
     "key": "MAGICIAN",
@@ -5070,7 +5235,8 @@ window.ONW_WIKI_ROLES = [
         "name": "他人の役で取る勝利",
         "desc": "魔法使いで勝利する。"
       }
-    ]
+    ],
+    "kana": "まほうつかい"
   },
   {
     "key": "MAGICAL_GIRL",
@@ -5105,7 +5271,8 @@ window.ONW_WIKI_ROLES = [
         "name": "愛と憎しみの名の元に",
         "desc": "闇堕ちした魔法少女で人狼陣営として敗北する。"
       }
-    ]
+    ],
+    "kana": "まほうしょうじょ"
   },
   {
     "key": "DAUGHTER",
@@ -5114,7 +5281,8 @@ window.ONW_WIKI_ROLES = [
     "team": "third",
     "order": 160,
     "desc": "マティアスによって選ばれた内部専用役職です。直接配役することはできません。",
-    "achievements": []
+    "achievements": [],
+    "kana": "むすめちゃん"
   },
   {
     "key": "DETECTIVE",
@@ -5154,7 +5322,8 @@ window.ONW_WIKI_ROLES = [
         "name": "煙の中の名推理",
         "desc": "煙幕が発動した試合で名探偵が勝利する。"
       }
-    ]
+    ],
+    "kana": "めいたんてい"
   },
   {
     "key": "PRANKSTER",
@@ -5174,7 +5343,8 @@ window.ONW_WIKI_ROLES = [
         "name": "笑うのは私だけ",
         "desc": "愉快犯で勝利する。"
       }
-    ]
+    ],
+    "kana": "ゆかいはん"
   },
   {
     "key": "PREDICTOR",
@@ -5214,7 +5384,8 @@ window.ONW_WIKI_ROLES = [
         "name": "完全的中",
         "desc": "予想屋で勝利する。"
       }
-    ]
+    ],
+    "kana": "よそうや"
   },
   {
     "key": "MERCENARY",
@@ -5269,7 +5440,8 @@ window.ONW_WIKI_ROLES = [
         "name": "任務完了、これで安心して眠れる。",
         "desc": "傭兵で勝利する。"
       }
-    ]
+    ],
+    "kana": "ようへい"
   },
   {
     "key": "FOX",
@@ -5299,7 +5471,8 @@ window.ONW_WIKI_ROLES = [
         "name": "油揚げ争奪戦",
         "desc": "妖狐投票で同数最多になり追放される。"
       }
-    ]
+    ],
+    "kana": "ようこ"
   },
   {
     "key": "YOKAI_TANUKI",
@@ -5344,7 +5517,8 @@ window.ONW_WIKI_ROLES = [
         "name": "妖狸で初勝利",
         "desc": "妖狸で勝利する。"
       }
-    ]
+    ],
+    "kana": "ようり"
   },
   {
     "key": "RASETSU",
@@ -5353,7 +5527,8 @@ window.ONW_WIKI_ROLES = [
     "team": "third",
     "order": 166,
     "desc": "ランダムな愛する人を得ます。愛する人が死亡した場合、その相手と追加勝利します。",
-    "achievements": []
+    "achievements": [],
+    "kana": "らせつ"
   },
   {
     "key": "COPYIST",
@@ -5378,7 +5553,8 @@ window.ONW_WIKI_ROLES = [
         "name": "本物として生きる道",
         "desc": "コピリストで勝利する。"
       }
-    ]
+    ],
+    "kana": "コピリスト"
   },
   {
     "key": "DETECTIVE_GHOST",
@@ -5398,7 +5574,8 @@ window.ONW_WIKI_ROLES = [
         "name": "墓場に真実あり",
         "desc": "探偵の亡霊で勝利する。"
       }
-    ]
+    ],
+    "kana": "たんていのぼうれい"
   },
   {
     "key": "EVEN_ONE",
@@ -5418,7 +5595,8 @@ window.ONW_WIKI_ROLES = [
         "name": "偶数",
         "desc": "偶数人で勝利する。"
       }
-    ]
+    ],
+    "kana": "ぐうすうびと"
   },
   {
     "key": "JESTER_GHOST",
@@ -5443,7 +5621,8 @@ window.ONW_WIKI_ROLES = [
         "name": "恨み晴らさでおくべきか",
         "desc": "道化の怨霊で勝利する。"
       }
-    ]
+    ],
+    "kana": "どうけのおんりょう"
   },
   {
     "key": "MULTI_PERSONALITY",
@@ -5478,7 +5657,8 @@ window.ONW_WIKI_ROLES = [
         "name": "白黒白黒白黒",
         "desc": "多重人格として3回以上人格が入れ替わる。"
       }
-    ]
+    ],
+    "kana": "たじゅうじんかく"
   },
   {
     "key": "ODD_ONE",
@@ -5498,7 +5678,8 @@ window.ONW_WIKI_ROLES = [
         "name": "奇数",
         "desc": "奇数人で勝利する。"
       }
-    ]
+    ],
+    "kana": "きすうびと"
   },
   {
     "key": "TELEPATHIST",
@@ -5523,7 +5704,8 @@ window.ONW_WIKI_ROLES = [
         "name": "以心伝心",
         "desc": "テレパシストで勝利する。"
       }
-    ]
+    ],
+    "kana": "テレパシスト"
   },
   {
     "key": "WRAITH",
@@ -5532,7 +5714,8 @@ window.ONW_WIKI_ROLES = [
     "team": "third",
     "order": 132,
     "desc": "ネクロマンサーの能力によって、敗北していた死亡者から変化する役職です。変化した時点で勝者に加わります。",
-    "achievements": []
+    "achievements": [],
+    "kana": "しりょう"
   },
   {
     "key": "DOPPELGANGER",
@@ -5567,6 +5750,7 @@ window.ONW_WIKI_ROLES = [
         "name": "誰かになる者",
         "desc": "初めてドッペルゲンガーになる。"
       }
-    ]
+    ],
+    "kana": "ドッペルゲンガー"
   }
 ];
