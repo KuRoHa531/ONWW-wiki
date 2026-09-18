@@ -45,9 +45,34 @@
   ]);
 
   function implCategoryOf(role) {
+    const override = IMPL_ORDER_OVERRIDE_BY_KEY[role.key];
+    if (override) return override.category;
     if (role.team === "village") return 0;
     if (role.team === "wolf") return MAD_KEYS.has(role.key) ? 2 : 1; // 1:人狼 2:狂人
     return 3; // third（ドッペルゲンガーもここに含まれる）
+  }
+
+  // ゲーム内順の表示位置を個別に補正するための一覧。
+  // 死霊(WRAITH)はネクロマンサーの能力から生まれる役職なので、
+  // チーム分類上は第三陣営だが、表示上はネクロマンサーの直下に置く。
+  const IMPL_ORDER_OVERRIDES = [
+    { key: "WRAITH", afterKey: "NECROMANCER" },
+  ];
+  const roleByKey = {};
+  roles.forEach((r) => { roleByKey[r.key] = r; });
+  const IMPL_ORDER_OVERRIDE_BY_KEY = {};
+  IMPL_ORDER_OVERRIDES.forEach(({ key, afterKey }) => {
+    const anchor = roleByKey[afterKey];
+    if (!anchor) return;
+    IMPL_ORDER_OVERRIDE_BY_KEY[key] = {
+      category: implCategoryOf(anchor),
+      order: (anchor.order ?? 9999) + 0.5,
+    };
+  });
+
+  function implOrderOf(role) {
+    const override = IMPL_ORDER_OVERRIDE_BY_KEY[role.key];
+    return override ? override.order : (role.order ?? 9999);
   }
 
   // --- 絞り込み方（team とは別軸の「候補」系フィルター）------------------
@@ -109,11 +134,16 @@
   function isMimicCandidate(role) { return MIMIC_CANDIDATE_KEYS.has(role.key); }
   function isCosplayCandidate(role) { return COSPLAY_CANDIDATE_KEYS.has(role.key); }
 
+  // 陣営バッジを表示せず、「すべて」以外の陣営絞り込みにも出さない役職。
+  // 死霊(WRAITH)はネクロマンサーの能力からその場で生まれる役職のため、
+  // 通常の陣営フィルターの対象外として扱う。
+  const TEAMLESS_DISPLAY_KEYS = new Set(["WRAITH"]);
+
   const FILTER_DEFS = [
     { id: "all", label: "すべて", test: () => true },
-    { id: "village", label: TEAM_LABEL.village, test: (r) => r.team === "village" },
-    { id: "wolf", label: TEAM_LABEL.wolf, test: (r) => r.team === "wolf" },
-    { id: "third", label: TEAM_LABEL.third, test: (r) => r.team === "third" },
+    { id: "village", label: TEAM_LABEL.village, test: (r) => r.team === "village" && !TEAMLESS_DISPLAY_KEYS.has(r.key) },
+    { id: "wolf", label: TEAM_LABEL.wolf, test: (r) => r.team === "wolf" && !TEAMLESS_DISPLAY_KEYS.has(r.key) },
+    { id: "third", label: TEAM_LABEL.third, test: (r) => r.team === "third" && !TEAMLESS_DISPLAY_KEYS.has(r.key) },
     { id: "shuffle", label: "シャッフル候補", test: isShuffleCandidate },
     { id: "mimic", label: "模倣候補", test: isMimicCandidate },
     { id: "cosplay", label: "コスプレ候補", test: isCosplayCandidate },
@@ -131,10 +161,14 @@
     searchScopes: new Set(["name"]),
   };
 
-  // 「五十音順」= wiki-data.js の元々の並び順(配列インデックス)。
+  // 「五十音順」= 各役職の読み方(kanaフィールド、ひらがな)による実際の五十音順。
   // 「ゲーム内順」= アドオンのROLE_ORDER(役職選択画面の並び)を示すorderフィールド。
-  const kanaIndexByKey = {};
-  roles.forEach((r, i) => { kanaIndexByKey[r.key] = i; });
+  const kanaCollator = new Intl.Collator("ja", { usage: "sort", sensitivity: "base" });
+  function kanaCompare(a, b) {
+    const diff = kanaCollator.compare(a.kana || a.name, b.kana || b.name);
+    if (diff !== 0) return diff;
+    return a.key < b.key ? -1 : a.key > b.key ? 1 : 0;
+  }
 
   const $list = document.getElementById("wiki-list");
   const $empty = document.getElementById("empty-state");
@@ -249,9 +283,9 @@
     if (state.sort === "impl") {
       const diff = implCategoryOf(a) - implCategoryOf(b);
       if (diff !== 0) return diff;
-      return (a.order ?? 9999) - (b.order ?? 9999);
+      return implOrderOf(a) - implOrderOf(b);
     }
-    return kanaIndexByKey[a.key] - kanaIndexByKey[b.key];
+    return kanaCompare(a, b);
   }
 
   function render() {
@@ -263,17 +297,18 @@
       .map((role) => {
         const open = state.openKeys.has(role.key);
         return `
-        <article class="wiki-card" data-team="${role.team}">
+        <article class="wiki-card" ${TEAMLESS_DISPLAY_KEYS.has(role.key) ? "" : `data-team="${role.team}"`}>
           <button class="wiki-card__head" type="button" data-toggle="${role.key}" aria-expanded="${open}">
             <span class="wiki-card__name">${escapeHtml(role.name)}</span>
             <span class="wiki-card__head-right">
-              <span class="tag-team tag-team--${role.team}">${TEAM_LABEL[role.team] ?? role.team}</span>
+              ${TEAMLESS_DISPLAY_KEYS.has(role.key) ? "" : `<span class="tag-team tag-team--${role.team}">${TEAM_LABEL[role.team] ?? role.team}</span>`}
               <span class="wiki-card__arrow">${open ? "▲" : "▼"}</span>
             </span>
           </button>
           ${renderMatchHits(role)}
           ${open ? `
           <div class="wiki-card__body">
+            ${role.kana && role.kana !== role.name ? `<p class="wiki-card__kana">${escapeHtml(role.kana)}</p>` : ""}
             <p class="wiki-card__desc">${escapeHtml(role.desc)}</p>
             ${renderAchievements(role)}
           </div>` : ""}
