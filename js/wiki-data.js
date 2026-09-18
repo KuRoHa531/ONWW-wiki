@@ -40,7 +40,7 @@ window.ONW_WIKI_ROLES = [
         "desc": "鍵師にロックされたA.A.で勝利する。"
       }
     ],
-    "kana": "A.A."
+    "kana": "えーえー"
   },
   {
     "key": "ICARUS",
