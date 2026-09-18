@@ -28,22 +28,37 @@
         id="search-input"
         class="wiki-search"
         type="search"
-        placeholder="役職名で検索（例: 人狼、占い、てるてる坊主 …）"
+        placeholder="キーワードで検索（例: 人狼、占い、てるてる坊主 …）"
         autocomplete="off"
       >
-      <button
-        id="controls-toggle"
-        class="wiki-controls-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="controls-panel"
-      >並び替え・絞り込み ▼</button>
+      <div class="wiki-sort-row wiki-scope-row">
+        <span class="wiki-sort-label">検索対象:</span>
+        <div class="wiki-filter-row" id="search-scope"></div>
+      </div>
+      <div class="wiki-controls-toggle-row">
+        <button
+          id="sort-panel-toggle"
+          class="wiki-controls-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="sort-panel"
+        >並び替え ▼</button>
+        <button
+          id="filter-panel-toggle"
+          class="wiki-controls-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="filter-panel"
+        >絞り込み ▼</button>
+      </div>
 
-      <div id="controls-panel" hidden>
+      <div id="sort-panel" hidden>
         <div class="wiki-sort-row">
           <span class="wiki-sort-label">並び順:</span>
           <div class="wiki-filter-row" id="sort-toggle"></div>
         </div>
+      </div>
+      <div id="filter-panel" hidden>
         <div class="wiki-filter-row" id="team-filters"></div>
       </div>
     </section>
