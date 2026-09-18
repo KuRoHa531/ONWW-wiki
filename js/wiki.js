@@ -153,7 +153,7 @@
   const state = {
     query: "",
     filter: "all",
-    sort: "kana",
+    sort: "impl",
     sortPanelOpen: false,
     filterPanelOpen: false,
     openKeys: new Set(),
@@ -230,7 +230,7 @@
   }
 
   function buildSortToggle() {
-    const modes = ["kana", "impl"];
+    const modes = ["impl", "kana"];
     $sortToggle.innerHTML = modes
       .map((m) => `<button class="wiki-filter ${m === state.sort ? "active" : ""}" data-sort="${m}">${SORT_LABEL[m]}</button>`)
       .join("");
@@ -250,7 +250,7 @@
     if (!state.query) return true;
     const q = state.query.toLowerCase();
     const scopes = state.searchScopes;
-    if (scopes.has("name") && role.name.toLowerCase().includes(q)) return true;
+    if (scopes.has("name") && (role.name.toLowerCase().includes(q) || (role.kana || "").toLowerCase().includes(q))) return true;
     if (scopes.has("desc") && role.desc.toLowerCase().includes(q)) return true;
     if (scopes.has("achievement") && (role.achievements || []).some((a) => a.name.toLowerCase().includes(q))) return true;
     return false;
@@ -259,14 +259,14 @@
   function sortRoles(list) {
     const sorted = [...list];
     if (state.query) {
-      // 検索中は「名前が一致する役職」を優先度順に先頭へ。
-      // 0:名前完全一致 1:名前前方一致 2:名前部分一致
+      // 検索中は「名前(または読み方)が一致する役職」を優先度順に先頭へ。
+      // 0:完全一致 1:前方一致 2:部分一致
       const q = state.query.toLowerCase();
       const relevanceOf = (role) => {
         const name = role.name.toLowerCase();
-        if (name === q) return 0;
-        if (name.startsWith(q)) return 1;
-        return 2;
+        const kana = (role.kana || "").toLowerCase();
+        const scoreOf = (s) => (s === q ? 0 : s.startsWith(q) ? 1 : s.includes(q) ? 2 : 3);
+        return Math.min(scoreOf(name), scoreOf(kana));
       };
       sorted.sort((a, b) => {
         const diff = relevanceOf(a) - relevanceOf(b);
