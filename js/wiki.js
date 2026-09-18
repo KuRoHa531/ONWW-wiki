@@ -21,6 +21,12 @@
     impl: "ゲーム内順",
   };
 
+  const SEARCH_SCOPE_DEFS = [
+    { id: "name", label: "役職名" },
+    { id: "desc", label: "役職説明" },
+    { id: "achievement", label: "実績名" },
+  ];
+
   // ゲーム内順での大分類: 村人 → 人狼 → 狂人 → 第三陣営。
   // (「陣営なし」は廃止。ドッペルゲンガーは第三陣営として扱う)
   // team="wolf" の中で「人狼」と「狂人」をさらに分けるための一覧
@@ -118,7 +124,11 @@
     query: "",
     filter: "all",
     sort: "kana",
-    controlsOpen: false,
+    sortPanelOpen: false,
+    filterPanelOpen: false,
+    openKeys: new Set(),
+    openAchievements: new Set(),
+    searchScopes: new Set(["name"]),
   };
 
   // 「五十音順」= wiki-data.js の元々の並び順(配列インデックス)。
@@ -132,8 +142,11 @@
   const $filters = document.getElementById("team-filters");
   const $sortToggle = document.getElementById("sort-toggle");
   const $search = document.getElementById("search-input");
-  const $controlsToggle = document.getElementById("controls-toggle");
-  const $controlsPanel = document.getElementById("controls-panel");
+  const $searchScope = document.getElementById("search-scope");
+  const $sortPanelToggle = document.getElementById("sort-panel-toggle");
+  const $sortPanel = document.getElementById("sort-panel");
+  const $filterPanelToggle = document.getElementById("filter-panel-toggle");
+  const $filterPanel = document.getElementById("filter-panel");
 
   function buildFilters() {
     $filters.innerHTML = FILTER_DEFS
@@ -151,10 +164,35 @@
   }
 
   function buildControlsToggle() {
-    if (!$controlsToggle || !$controlsPanel) return;
-    $controlsToggle.setAttribute("aria-expanded", String(state.controlsOpen));
-    $controlsToggle.textContent = `並び替え・絞り込み ${state.controlsOpen ? "▲" : "▼"}`;
-    $controlsPanel.hidden = !state.controlsOpen;
+    if ($sortPanelToggle && $sortPanel) {
+      $sortPanelToggle.setAttribute("aria-expanded", String(state.sortPanelOpen));
+      $sortPanelToggle.textContent = `並び替え ${state.sortPanelOpen ? "▲" : "▼"}`;
+      $sortPanel.hidden = !state.sortPanelOpen;
+    }
+    if ($filterPanelToggle && $filterPanel) {
+      $filterPanelToggle.setAttribute("aria-expanded", String(state.filterPanelOpen));
+      $filterPanelToggle.textContent = `絞り込み ${state.filterPanelOpen ? "▲" : "▼"}`;
+      $filterPanel.hidden = !state.filterPanelOpen;
+    }
+  }
+
+  function buildSearchScope() {
+    $searchScope.innerHTML = SEARCH_SCOPE_DEFS
+      .map((s) => `<button class="wiki-filter ${state.searchScopes.has(s.id) ? "active" : ""}" data-scope="${s.id}">${s.label}</button>`)
+      .join("");
+
+    $searchScope.querySelectorAll("[data-scope]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.dataset.scope;
+        if (state.searchScopes.has(id)) {
+          if (state.searchScopes.size > 1) state.searchScopes.delete(id);
+        } else {
+          state.searchScopes.add(id);
+        }
+        buildSearchScope();
+        render();
+      });
+    });
   }
 
   function buildSortToggle() {
@@ -177,21 +215,43 @@
     if (!def.test(role)) return false;
     if (!state.query) return true;
     const q = state.query.toLowerCase();
-    return role.name.toLowerCase().includes(q) || role.desc.toLowerCase().includes(q);
+    const scopes = state.searchScopes;
+    if (scopes.has("name") && role.name.toLowerCase().includes(q)) return true;
+    if (scopes.has("desc") && role.desc.toLowerCase().includes(q)) return true;
+    if (scopes.has("achievement") && (role.achievements || []).some((a) => a.name.toLowerCase().includes(q))) return true;
+    return false;
   }
 
   function sortRoles(list) {
     const sorted = [...list];
-    if (state.sort === "impl") {
+    if (state.query) {
+      // 検索中は「名前が一致する役職」を優先度順に先頭へ。
+      // 0:名前完全一致 1:名前前方一致 2:名前部分一致
+      const q = state.query.toLowerCase();
+      const relevanceOf = (role) => {
+        const name = role.name.toLowerCase();
+        if (name === q) return 0;
+        if (name.startsWith(q)) return 1;
+        return 2;
+      };
       sorted.sort((a, b) => {
-        const diff = implCategoryOf(a) - implCategoryOf(b);
+        const diff = relevanceOf(a) - relevanceOf(b);
         if (diff !== 0) return diff;
-        return (a.order ?? 9999) - (b.order ?? 9999);
+        return sortComparator(a, b);
       });
-    } else {
-      sorted.sort((a, b) => kanaIndexByKey[a.key] - kanaIndexByKey[b.key]);
+      return sorted;
     }
+    sorted.sort(sortComparator);
     return sorted;
+  }
+
+  function sortComparator(a, b) {
+    if (state.sort === "impl") {
+      const diff = implCategoryOf(a) - implCategoryOf(b);
+      if (diff !== 0) return diff;
+      return (a.order ?? 9999) - (b.order ?? 9999);
+    }
+    return kanaIndexByKey[a.key] - kanaIndexByKey[b.key];
   }
 
   function render() {
@@ -200,18 +260,119 @@
     $empty.hidden = filtered.length !== 0;
 
     $list.innerHTML = filtered
-      .map(
-        (role) => `
+      .map((role) => {
+        const open = state.openKeys.has(role.key);
+        return `
         <article class="wiki-card" data-team="${role.team}">
-          <div class="wiki-card__head">
+          <button class="wiki-card__head" type="button" data-toggle="${role.key}" aria-expanded="${open}">
             <span class="wiki-card__name">${escapeHtml(role.name)}</span>
-            <span class="tag-team tag-team--${role.team}">${TEAM_LABEL[role.team] ?? role.team}</span>
-          </div>
-          <p class="wiki-card__desc">${escapeHtml(role.desc)}</p>
+            <span class="wiki-card__head-right">
+              <span class="tag-team tag-team--${role.team}">${TEAM_LABEL[role.team] ?? role.team}</span>
+              <span class="wiki-card__arrow">${open ? "▲" : "▼"}</span>
+            </span>
+          </button>
+          ${renderMatchHits(role)}
+          ${open ? `
+          <div class="wiki-card__body">
+            <p class="wiki-card__desc">${escapeHtml(role.desc)}</p>
+            ${renderAchievements(role)}
+          </div>` : ""}
         </article>
-      `
-      )
+      `;
+      })
       .join("");
+
+    $list.querySelectorAll("[data-toggle]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.toggle;
+        if (state.openKeys.has(key)) {
+          state.openKeys.delete(key);
+        } else {
+          state.openKeys.add(key);
+        }
+        render();
+      });
+    });
+
+    $list.querySelectorAll("[data-ach-toggle]").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const achKey = btn.dataset.achToggle;
+        if (state.openAchievements.has(achKey)) {
+          state.openAchievements.delete(achKey);
+        } else {
+          state.openAchievements.add(achKey);
+        }
+        render();
+      });
+    });
+  }
+
+  function renderMatchHits(role) {
+    if (!state.query) return "";
+    const q = state.query.toLowerCase();
+    const scopes = state.searchScopes;
+    const parts = [];
+
+    if (scopes.has("achievement")) {
+      const achHits = (role.achievements || []).filter((a) => a.name.toLowerCase().includes(q));
+      if (achHits.length > 0) {
+        parts.push(`
+          <div class="wiki-card__hit">
+            <span class="wiki-card__hit-label">ヒットした実績:</span>
+            <ul class="wiki-card__hit-list">
+              ${achHits.map((a) => `<li>${escapeHtml(a.name)}</li>`).join("")}
+            </ul>
+          </div>
+        `);
+      }
+    }
+
+    if (scopes.has("desc")) {
+      const lines = role.desc.split("\n");
+      const descHits = lines.filter((line) => line.toLowerCase().includes(q));
+      if (descHits.length > 0) {
+        parts.push(`
+          <div class="wiki-card__hit">
+            <span class="wiki-card__hit-label">ヒットした説明:</span>
+            <ul class="wiki-card__hit-list">
+              ${descHits.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}
+            </ul>
+          </div>
+        `);
+      }
+    }
+
+    return parts.join("");
+  }
+
+  function renderAchievements(role) {
+    const achievements = role.achievements || [];
+    if (achievements.length === 0) {
+      return "";
+    }
+    return `
+      <div class="wiki-card__achievements">
+        <p class="wiki-card__ach-heading">実績</p>
+        <ul class="wiki-ach-list">
+          ${achievements
+            .map((ach) => {
+              const achKey = `${role.key}::${ach.id}`;
+              const achOpen = state.openAchievements.has(achKey);
+              return `
+              <li class="wiki-ach">
+                <button class="wiki-ach__head" type="button" data-ach-toggle="${achKey}" aria-expanded="${achOpen}">
+                  <span class="wiki-ach__name">${escapeHtml(ach.name)}</span>
+                  <span class="wiki-ach__arrow">${achOpen ? "▲" : "▼"}</span>
+                </button>
+                ${achOpen ? `<p class="wiki-ach__desc">${escapeHtml(ach.desc)}</p>` : ""}
+              </li>
+            `;
+            })
+            .join("")}
+        </ul>
+      </div>
+    `;
   }
 
   function escapeHtml(str) {
@@ -225,14 +386,22 @@
     render();
   });
 
-  if ($controlsToggle) {
-    $controlsToggle.addEventListener("click", () => {
-      state.controlsOpen = !state.controlsOpen;
+  if ($sortPanelToggle) {
+    $sortPanelToggle.addEventListener("click", () => {
+      state.sortPanelOpen = !state.sortPanelOpen;
+      buildControlsToggle();
+    });
+  }
+
+  if ($filterPanelToggle) {
+    $filterPanelToggle.addEventListener("click", () => {
+      state.filterPanelOpen = !state.filterPanelOpen;
       buildControlsToggle();
     });
   }
 
   buildFilters();
+  buildSearchScope();
   buildSortToggle();
   buildControlsToggle();
   render();
