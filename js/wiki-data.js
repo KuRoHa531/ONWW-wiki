@@ -795,16 +795,6 @@ window.ONW_WIKI_ROLES = [
         "id": "trailblazer_win_elation",
         "name": "最高の瞬間を彩ってあげる。",
         "desc": "愉悦の運命を歩む開拓者で勝利する。"
-      },
-      {
-        "id": "first_trailblazer",
-        "name": "はじめての開拓者",
-        "desc": "初めて開拓者になる。"
-      },
-      {
-        "id": "win_trailblazer",
-        "name": "開拓者で初勝利",
-        "desc": "開拓者で勝利する。"
       }
     ],
     "kana": "かいたくしゃ"
@@ -1001,16 +991,6 @@ window.ONW_WIKI_ROLES = [
         "id": "apprentice_seer_black_result_exiled",
         "name": "迷いのない断定",
         "desc": "黒結果をもらったうえでその相手を追放し勝利する。"
-      },
-      {
-        "id": "first_apprentice_seer",
-        "name": "はじめての見習いの占い師",
-        "desc": "初めて見習いの占い師になる。"
-      },
-      {
-        "id": "win_apprentice_seer",
-        "name": "見習いの占い師で初勝利",
-        "desc": "見習いの占い師で勝利する。"
       }
     ],
     "kana": "みならいのうらないし"
@@ -1047,16 +1027,6 @@ window.ONW_WIKI_ROLES = [
         "id": "lookout_target_no_action",
         "name": "誰も動かなかった夜",
         "desc": "選んだ相手が「行動していませんでした。」という結果を得る。"
-      },
-      {
-        "id": "first_lookout",
-        "name": "はじめての見張り番",
-        "desc": "初めて見張り番になる。"
-      },
-      {
-        "id": "win_lookout",
-        "name": "見張り番で初勝利",
-        "desc": "見張り番で勝利する。"
       }
     ],
     "kana": "みはりばん"
@@ -1367,6 +1337,16 @@ window.ONW_WIKI_ROLES = [
         "id": "major_sacrifice",
         "name": "顔を上げて進み続けなさい",
         "desc": "少佐の身代わり能力で死亡する。"
+      },
+      {
+        "id": "major_drunk",
+        "name": "酒を飲む教師",
+        "desc": "少佐で酔っぱらう。"
+      },
+      {
+        "id": "major_coffee",
+        "name": "列車のナビゲーター",
+        "desc": "少佐でコーヒーを受け取る。"
       }
     ],
     "kana": "しょうさ"
@@ -1408,16 +1388,6 @@ window.ONW_WIKI_ROLES = [
         "id": "psychologist_two_masons",
         "name": "ポンコツ心理士",
         "desc": "心理士で共有者2人を選ぶ。"
-      },
-      {
-        "id": "first_psychologist",
-        "name": "はじめての心理士",
-        "desc": "初めて心理士になる。"
-      },
-      {
-        "id": "win_psychologist",
-        "name": "心理士で初勝利",
-        "desc": "心理士で勝利する。"
       }
     ],
     "kana": "しんりし"
@@ -1989,16 +1959,6 @@ window.ONW_WIKI_ROLES = [
         "id": "bell_miko_day_ring",
         "name": "昼下がりの鈴音",
         "desc": "昼の間に能力の対象にされ、鈴が鳴る。"
-      },
-      {
-        "id": "first_bell_miko",
-        "name": "はじめての鈴の巫女",
-        "desc": "初めて鈴の巫女になる。"
-      },
-      {
-        "id": "win_bell_miko",
-        "name": "鈴の巫女で初勝利",
-        "desc": "鈴の巫女で勝利する。"
       }
     ],
     "kana": "すずのみこ"
@@ -2346,7 +2306,18 @@ window.ONW_WIKI_ROLES = [
     "team": "village",
     "order": 70,
     "desc": "夜に選んだプレイヤーに罠を張ります。\n人狼陣営か第三陣営が罠を張られたプレイヤーに\n昼能力を使おうとすると失敗し\n投票権が失われます。",
-    "achievements": [],
+    "achievements": [
+      {
+        "id": "first_trap_master",
+        "name": "罠の仕掛け人",
+        "desc": "初めて罠師になる。"
+      },
+      {
+        "id": "win_trap_master",
+        "name": "踏んだら最後",
+        "desc": "罠師で勝利する。"
+      }
+    ],
     "kana": "わなし"
   },
   {
@@ -2681,16 +2652,6 @@ window.ONW_WIKI_ROLES = [
         "id": "mad_priest_god_wolf",
         "name": "歪んだ奇跡",
         "desc": "神の勝利によって人狼陣営を追加勝利させる。"
-      },
-      {
-        "id": "first_mad_priest",
-        "name": "はじめての狂った神官",
-        "desc": "初めて狂った神官になる。"
-      },
-      {
-        "id": "win_mad_priest",
-        "name": "狂った神官で初勝利",
-        "desc": "狂った神官で勝利する。"
       }
     ],
     "kana": "くるったしんかん"
@@ -3451,6 +3412,11 @@ window.ONW_WIKI_ROLES = [
         "id": "win_horse_madman",
         "name": "勝ち馬に乗る",
         "desc": "馬の狂人で勝利する。"
+      },
+      {
+        "id": "horse_madman_coffee",
+        "name": "馬ルクト",
+        "desc": "馬の狂人でコーヒーを受け取る。"
       }
     ],
     "kana": "うまのきょうじん"
@@ -4405,11 +4371,6 @@ window.ONW_WIKI_ROLES = [
         "id": "matthias_loss",
         "name": "赤い点",
         "desc": "マティアスで敗北する。"
-      },
-      {
-        "id": "first_matthias",
-        "name": "はじめてのマティアス",
-        "desc": "初めてマティアスになる。"
       }
     ],
     "kana": "マティアス"
@@ -5506,16 +5467,6 @@ window.ONW_WIKI_ROLES = [
         "id": "yokai_tanuki_cursed",
         "name": "今日はたぬき鍋パーティーだ！",
         "desc": "妖狸で呪殺される。"
-      },
-      {
-        "id": "first_yokai_tanuki",
-        "name": "はじめての妖狸",
-        "desc": "初めて妖狸になる。"
-      },
-      {
-        "id": "win_yokai_tanuki",
-        "name": "妖狸で初勝利",
-        "desc": "妖狸で勝利する。"
       }
     ],
     "kana": "ようり"
@@ -5573,6 +5524,11 @@ window.ONW_WIKI_ROLES = [
         "id": "win_detective_ghost",
         "name": "墓場に真実あり",
         "desc": "探偵の亡霊で勝利する。"
+      },
+      {
+        "id": "detective_ghost_guess_detective",
+        "name": "ベイカー街の亡霊",
+        "desc": "探偵の亡霊が名探偵と解答して勝利する。"
       }
     ],
     "kana": "たんていのぼうれい"
